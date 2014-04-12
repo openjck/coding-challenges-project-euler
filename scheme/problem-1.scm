@@ -11,8 +11,6 @@
 (define (evenly-divides divisor dividend)
   (= 0 (modulo dividend divisor)))
 
-(define (sum l)
-  (if (null? l) 0
-      (+ (car l) (sum (cdr l)))))
+(define (sum l) (foldl + 0 l))
 
 (print (sum (factors-between 1 1000)))
