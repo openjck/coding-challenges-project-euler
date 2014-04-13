@@ -1,11 +1,11 @@
-; Factors between start (inclusive) and end (exclusive)
-(define (factors-between start end)
+; Multiples between start (inclusive) and end (exclusive)
+(define (multiples-between start end)
   (if (>= start end) '()
-    (let ((higher-factors (factors-between (+ 1 start) end)))
-      (if (is-factor start) (cons start higher-factors)
-          higher-factors))))
+    (let ((higher-multiples (multiples-between (+ 1 start) end)))
+      (if (is-multiple start) (cons start higher-multiples)
+          higher-multiples))))
 
-(define (is-factor n)
+(define (is-multiple n)
   (or (evenly-divides 5 n) (evenly-divides 3 n)))
 
 (define (evenly-divides divisor dividend)
@@ -13,4 +13,4 @@
 
 (define (sum l) (foldl + 0 l))
 
-(print (sum (factors-between 1 1000)))
+(print (sum (multiples-between 1 1000)))
