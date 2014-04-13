@@ -1,4 +1,8 @@
+# Ignore binaries, but not source files
 problem-*
 !problem-*.*
+
+# Intermediate files
 *.hi
 *.o
+*.class
