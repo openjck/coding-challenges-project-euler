@@ -1,5 +1,6 @@
 # Ignore binaries, but not source files
 problem-*
+!java/problem-*
 !problem-*.*
 
 # Intermediate files
