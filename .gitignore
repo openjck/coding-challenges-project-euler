@@ -1,7 +1,6 @@
 # Ignore binaries, but not source files
-*
-!*.*
-!Makefile
+*/problem-*/problem-*
+!*/problem-*/problem-*.*
 
 # Intermediate files
 *.hi
