@@ -6,7 +6,7 @@ import Data.Maybe
 
 gpf :: Integer -> Integer
 gpf n = fromJust (find prime factors)
-  where factors = filter (\x -> x `isFactor` n) [closestHalf, (closestHalf-1)..1]
+  where factors = n : (filter (\x -> x `isFactor` n) [closestHalf, (closestHalf-1)..1])
         closestHalf = n `div` 2
 
 prime :: Integer -> Bool
