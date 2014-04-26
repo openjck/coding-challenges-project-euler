@@ -13,6 +13,7 @@ evenlyDivides divisor dividend = dividend `mod` divisor == 0
 closestSquareRoot :: Integer -> Integer
 closestSquareRoot = floor . sqrt . fromIntegral
 
+factors :: Integer -> [Integer]
 factors n = foldr concatFactors [] [1..csr]
   where csr = closestSquareRoot n
         concatFactors x acc =
