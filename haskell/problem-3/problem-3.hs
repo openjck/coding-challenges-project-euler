@@ -1,19 +1,24 @@
--- Work in progress. Correctly returns the greatest prime factor, but is not
--- efficient enough to work with very large numbers.
-
-import Data.List
-import Data.Maybe
-
 gpf :: Integer -> Integer
-gpf n = fromJust (find prime factors)
-  where factors = n : (filter (\x -> x `isFactor` n) [closestHalf, (closestHalf-1)..1])
-        closestHalf = n `div` 2
+gpf = last . filter (isPrime) . factors
 
-prime :: Integer -> Bool
-prime n = none (\x -> x `isFactor` n) [2..((floor . sqrt . fromIntegral) n)]
-
-isFactor :: Integer -> Integer -> Bool
-isFactor divisor dividend = dividend `mod` divisor == 0
+isPrime :: Integer -> Bool
+isPrime n = none (\x -> x `evenlyDivides` n) [2..(closestSquareRoot n)]
 
 none :: (a -> Bool) -> [a] -> Bool
 none f l = not (any f l)
+
+evenlyDivides :: Integer -> Integer -> Bool
+evenlyDivides divisor dividend = dividend `mod` divisor == 0
+
+closestSquareRoot :: Integer -> Integer
+closestSquareRoot = floor . sqrt . fromIntegral
+
+factors n = foldr concatFactors [] [1..csr]
+  where csr = closestSquareRoot n
+        concatFactors x acc =
+            if (x `evenlyDivides` n && x /= csr)
+               then x : acc ++ [n `div` x]
+               else acc
+
+answer = gpf 600851475143
+main = print answer
