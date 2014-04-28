@@ -1,12 +1,5 @@
-import Data.List
-import Data.Maybe
+lcmMultiple :: [Integer] -> Integer
+lcmMultiple l = foldl lcm 1 l
 
-answer :: Integer
-answer = fromJust smallest
-    where smallest = find divisibleByAll [20,40..]
-          divisibleByAll n = all (\x -> x `evenlyDivides` n) [3..19]
-
-evenlyDivides :: Integer -> Integer -> Bool
-evenlyDivides divisor dividend = dividend `mod` divisor == 0
-
+answer = lcmMultiple [1..20]
 main = print answer
