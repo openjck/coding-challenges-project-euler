@@ -1,25 +1,25 @@
 gpf :: Integer -> Integer
-gpf = last . filter (isPrime) . factors
+gpf n = last primeFactors
+    where primeFactors = filter (isPrime) (factors n)
 
 isPrime :: Integer -> Bool
-isPrime n = none (\x -> x `evenlyDivides` n) [2..(closestSquareRoot n)]
+isPrime n = none (\x -> x `isFactorOf` n) [2..(flooredSquareRoot n)]
 
 none :: (a -> Bool) -> [a] -> Bool
 none f l = not (any f l)
 
-evenlyDivides :: Integer -> Integer -> Bool
-evenlyDivides divisor dividend = dividend `mod` divisor == 0
+isFactorOf :: Integer -> Integer -> Bool
+isFactorOf divisor dividend = dividend `mod` divisor == 0
 
-closestSquareRoot :: Integer -> Integer
-closestSquareRoot = floor . sqrt . fromIntegral
+flooredSquareRoot :: Integer -> Integer
+flooredSquareRoot = floor . sqrt . fromIntegral
 
 factors :: Integer -> [Integer]
-factors n = foldr concatFactors [] [1..csr]
-  where csr = closestSquareRoot n
-        concatFactors x acc =
-            if (x `evenlyDivides` n && x /= csr)
-               then x : acc ++ [n `div` x]
-               else acc
+factors n = foldr concatFactors [] [1..(flooredSquareRoot n)]
+    where concatFactors x acc =
+              if (x `isFactorOf` n && x /= (flooredSquareRoot n))
+                  then x : acc ++ [n `div` x]
+                  else acc
 
 answer = gpf 600851475143
 main = print answer
