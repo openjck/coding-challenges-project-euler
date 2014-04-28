@@ -17,8 +17,10 @@ flooredSquareRoot = floor . sqrt . fromIntegral
 factors :: Integer -> [Integer]
 factors n = foldr concatFactors [] [1..(flooredSquareRoot n)]
     where concatFactors x acc =
-              if (x `isFactorOf` n && x /= (flooredSquareRoot n))
-                  then x : acc ++ [n `div` x]
+              if (x `isFactorOf` n)
+                  then if (n `div` x == x)
+                      then x : acc
+                      else x : acc ++ [n `div` x]
                   else acc
 
 answer = gpf 600851475143
