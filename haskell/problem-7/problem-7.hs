@@ -8,7 +8,7 @@ nthPrime :: Int -> Integer
 nthPrime n = primes !! (n - 1)
 
 primes :: [Integer]
-primes = sieve 2 [3..]
+primes = sieve 2 [3,5..]
 
 -- Sieve of Eratosthenes
 sieve :: Integer -> [Integer] -> [Integer]
