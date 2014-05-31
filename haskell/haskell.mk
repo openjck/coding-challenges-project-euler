@@ -9,7 +9,7 @@ OUT = $(patsubst %.hs,%,$(SRC))
 all: $(OUT)
 
 %: %.hs
-	ghc $< -o $@
+	ghc -i../modules $< -o $@
 
 clean:
 	rm -f *.hi *.o
