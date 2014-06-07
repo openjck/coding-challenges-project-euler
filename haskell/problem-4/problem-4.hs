@@ -1,3 +1,5 @@
+main = print answer
+
 answer :: Integer
 answer = maximum . filter isPalindrome $ products
     where products = [x * y | x <- threeDigitNumbers, y <- threeDigitNumbers]
@@ -6,5 +8,3 @@ answer = maximum . filter isPalindrome $ products
 isPalindrome :: Integer -> Bool
 isPalindrome n = (str == reverse str)
     where str = show n
-
-main = print answer
