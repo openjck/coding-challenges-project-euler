@@ -1,8 +1,10 @@
 import Utilities.List
 import Utilities.Math
 
+main :: IO ()
 main = print answer
 
+answer :: Integer
 answer = gpf 600851475143
 
 gpf :: Integer -> Integer

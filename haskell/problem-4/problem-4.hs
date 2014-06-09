@@ -1,3 +1,4 @@
+main :: IO ()
 main = print answer
 
 answer :: Integer
