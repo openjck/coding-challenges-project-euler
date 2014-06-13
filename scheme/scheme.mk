@@ -4,9 +4,12 @@
 SRC = $(wildcard *.scm)
 OUT = $(patsubst %.scm,%,$(SRC))
 
-.PHONY: all nuke
+.PHONY: all run nuke
 
 all: $(OUT)
+
+run: $(OUT)
+	./$(OUT)
 
 %: %.scm
 	csc $< -o $@

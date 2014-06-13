@@ -4,12 +4,15 @@
 SRC = $(wildcard *.hs)
 OUT = $(patsubst %.hs,%,$(SRC))
 
-.PHONY: all clean nuke
+.PHONY: all run clean nuke
 
 all: $(OUT)
 
 %: %.hs
 	ghc -i../modules $< -o $@
+
+run: $(OUT)
+	./$(OUT)
 
 clean:
 	rm -f *.hi *.o

@@ -4,12 +4,15 @@
 SRC = $(wildcard *.go)
 OUT = $(patsubst %.go,%,$(SRC))
 
-.PHONY: all nuke
+.PHONY: all run nuke
 
 all: $(OUT)
 
 %: %.go
 	go build -o $@ $<
+
+run: $(OUT)
+	./$(OUT)
 
 nuke:
 	rm -f $(OUT)

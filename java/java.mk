@@ -3,10 +3,14 @@
 
 SRC = $(wildcard *.java)
 OUT = $(patsubst %.java,%.class,$(SRC))
+CLASS = $(patsubst %.java,%,$(SRC))
 
-.PHONY: all clean
+.PHONY: all run clean
 
 all: $(OUT)
+
+run: $(OUT)
+	java $(CLASS)
 
 %.class: %.java
 	javac $<
