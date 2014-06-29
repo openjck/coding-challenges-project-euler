@@ -10,7 +10,7 @@ func main() {
 func numsBetween(start int, end int) []int {
     var nums []int
 
-    for i := 1; i <= end; i++ {
+    for i := start; i <= end; i++ {
         nums = append(nums, i)
     }
 
