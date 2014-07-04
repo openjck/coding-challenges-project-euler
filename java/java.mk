@@ -15,5 +15,5 @@ run: $(OUT)
 %.class: %.java
 	javac $<
 
-clean:
+nuke:
 	rm -f *.class
