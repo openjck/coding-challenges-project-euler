@@ -2,9 +2,6 @@
 */problem-*/problem-*
 !*/problem-*/problem-*.*
 
-# Ignore notes-to-self
-notes/
-
 # Intermediate files
 *.hi
 *.o
