@@ -1,6 +1,8 @@
+import Utilities.math.MathUtilities;
+
 public class Problem5 {
     public static void main(String[] args) {
-        int[] numbersBelowTwenty = numbersBetween(1,20);
+        int[] numbersBelowTwenty = MathUtilities.numbersBetween(1,20);
         long answer = lcmMultiple(numbersBelowTwenty);
         System.out.println(answer);
     }
@@ -35,16 +37,5 @@ public class Problem5 {
         }
 
         return gcd;
-    }
-
-    private static int[] numbersBetween(int start, int end) {
-        int[] numbers = new int[end - start + 1];
-
-        for(int i = start; i <= end; i++) {
-            int index = i - start;
-            numbers[index] = i;
-        }
-
-        return numbers;
     }
 }

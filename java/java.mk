@@ -4,16 +4,17 @@
 SRC = $(wildcard *.java)
 OUT = $(patsubst %.java,%.class,$(SRC))
 CLASS = $(patsubst %.java,%,$(SRC))
+CLASSPATH = .:../packages
 
 .PHONY: all run clean
 
 all: $(OUT)
 
 run: $(OUT)
-	java $(CLASS)
+	java -classpath $(CLASSPATH) $(CLASS)
 
 %.class: %.java
-	javac $<
+	javac -classpath $(CLASSPATH) $<
 
 nuke:
 	rm -f *.class
