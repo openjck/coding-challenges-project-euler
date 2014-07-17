@@ -24,18 +24,18 @@ func lcmMultiple(nums []int) int {
     return lcmCurrent
 }
 
-func lcm(n1 int, n2 int) int {
+func lcm(a int, b int) int {
     var higher, lower int
 
     /* Determine which argument is higher so that we don't waste time testing
        multiples of the lower number. We could use math.Min and math.Max, but
        that would require two tests. */
-    if (n1 >= n2) {
-        higher = n1
-        lower = n2
+    if (a >= b) {
+        higher = a
+        lower = b
     } else {
-        higher = n2
-        lower = n1
+        higher = b
+        lower = a
     }
 
     var lcm, multiple int
