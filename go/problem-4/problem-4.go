@@ -7,14 +7,14 @@ import (
 )
 
 func main() {
-    palindromes := palindromeProducts(999, 100)
+    palindromes := palindromeProducts(100, 999)
     sort.Ints(palindromes)
     answer := palindromes[len(palindromes) - 1]
 
     fmt.Println(answer)
 }
 
-func palindromeProducts(highestFactor int, lowestFactor int) []int {
+func palindromeProducts(lowestFactor int, highestFactor int) []int {
     var palindromes []int
 
     for i := highestFactor; i >= lowestFactor; i-- {
