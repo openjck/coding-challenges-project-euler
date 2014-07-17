@@ -10,8 +10,8 @@ public class Problem5 {
     public static long lcmMultiple(int[] nums) {
         long lcmCurrent = nums[0];
 
-        for (int i = 1; i < nums.length; i++) {
-            lcmCurrent = lcm(lcmCurrent, nums[i]);
+        for (int num : nums) {
+            lcmCurrent = lcm(lcmCurrent, num);
         }
 
         return lcmCurrent;
