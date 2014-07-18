@@ -7,7 +7,9 @@ import (
 
 func main() {
     numsBelowTwenty := mathutils.NumbersBetween(1, 20)
-    fmt.Println(lcmMultiple(numsBelowTwenty))
+    answer := lcmMultiple(numsBelowTwenty)
+
+    fmt.Println(answer)
 }
 
 func lcmMultiple(nums []int) int {
