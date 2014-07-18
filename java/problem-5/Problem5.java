@@ -7,7 +7,7 @@ public class Problem5 {
         System.out.println(answer);
     }
 
-    public static long lcmMultiple(int[] nums) {
+    private static long lcmMultiple(int[] nums) {
         long lcmCurrent = nums[0];
 
         for (int num : nums) {
@@ -17,7 +17,7 @@ public class Problem5 {
         return lcmCurrent;
     }
 
-    public static long lcm(long a, long b) {
+    private static long lcm(long a, long b) {
         long gcd = gcd(a, b);
         long lcm = Math.abs(a * b) / gcd;
         return lcm;
