@@ -6,8 +6,8 @@ import (
 )
 
 func main() {
-    numsBelowTwenty := mathutils.NumbersBetween(1, 20)
-    answer := lcmMultiple(numsBelowTwenty)
+    firstTwenty := mathutils.NumbersBetween(1, 20)
+    answer := lcmMultiple(firstTwenty)
 
     fmt.Println(answer)
 }

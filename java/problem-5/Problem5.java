@@ -2,8 +2,8 @@ import Utilities.math.MathUtilities;
 
 public class Problem5 {
     public static void main(String[] args) {
-        int[] numbersBelowTwenty = MathUtilities.numbersBetween(1,20);
-        long answer = lcmMultiple(numbersBelowTwenty);
+        int[] firstTwenty = MathUtilities.numbersBetween(1,20);
+        long answer = lcmMultiple(firstTwenty);
         System.out.println(answer);
     }
 
