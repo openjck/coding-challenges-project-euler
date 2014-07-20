@@ -33,12 +33,12 @@ func palindromeProducts(lowestFactor int, highestFactor int) []int {
 func isPalindrome(n int) bool {
     s := strconv.Itoa(n)
 
-    // The index of the last character in the first half of the string.
-    // For strings with an odd number of characters, this is the character
-    // shared by both halves.
-    firstHalfIndex := (len(s) + 1) / 2
+    // The index of the last character of the first half of the string. For
+    // strings with an odd number of characters, this is the index of the
+    // character shared by both halves.
+    firstHalfIndex := (len(s) - 1) / 2
 
-    for i := 0; i < firstHalfIndex; i++ {
+    for i := 0; i <= firstHalfIndex; i++ {
         character := s[i]
         characterOpposite := s[len(s) - 1 - i]
         if (character != characterOpposite) {
