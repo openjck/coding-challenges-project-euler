@@ -1,11 +1,10 @@
 module Primes (primes, sieveOfEratosthenes)
 where
 
-primes :: (Integer -> [Integer] -> [Integer]) -> [Integer]
-primes sieve = sieve 2 [3,5..]
+primes :: ([Integer] -> [Integer]) -> [Integer]
+primes sieve = sieve candidates
+    where candidates = 2 : [3,5..]
 
-sieveOfEratosthenes :: Integer -> [Integer] -> [Integer]
-sieveOfEratosthenes n candidates = n : (sieveOfEratosthenes nextPrime remainingCandidates)
-    where nextPrime = head candidates
-          remainingCandidates = filter (\x -> x `mod` n /= 0) candidatesLessN
-          candidatesLessN = drop 1 candidates
+sieveOfEratosthenes :: [Integer] -> [Integer]
+sieveOfEratosthenes (prime:otherCandidates) = prime : (sieveOfEratosthenes nonFactors)
+    where nonFactors = filter (\x -> x `mod` prime /= 0) otherCandidates
