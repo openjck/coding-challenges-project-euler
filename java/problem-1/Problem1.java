@@ -6,7 +6,7 @@ public class Problem1 {
         int sumFive = sumMultiples(5, LIMIT);
         int sumCommon = sumMultiples(15, LIMIT);
 
-        int answer =  sumThree + sumFive - sumCommon;
+        int answer = sumThree + sumFive - sumCommon;
 
         System.out.println(answer);
     }
