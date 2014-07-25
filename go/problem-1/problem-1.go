@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-    const limit = 1000
+    const limit = 999
 
     sumThree := sumMultiples(3, limit)
     sumFive := sumMultiples(5, limit)
@@ -14,9 +14,10 @@ func main() {
     fmt.Println(answer)
 }
 
-func sumMultiples(base int, limit int) (sum int) {
-    for i := 0; i < limit; i+=base {
-        sum += i
-    }
+// http://www.algebra.com/algebra/homework/Sequences-and-series.faq.question.427328.html
+func sumMultiples(multiple int, limit int) (sum int) {
+    numTerms := limit / multiple
+    lastTerm := multiple * numTerms
+    sum = int((float32(numTerms) / 2.0) * float32(multiple + lastTerm))
     return
 }

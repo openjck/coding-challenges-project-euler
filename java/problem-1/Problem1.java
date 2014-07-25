@@ -1,6 +1,8 @@
+import java.lang.Math;
+
 public class Problem1 {
     public static void main(String[] args) {
-        final int LIMIT = 1000;
+        final int LIMIT = 999;
 
         int sumThree = sumMultiples(3, LIMIT);
         int sumFive = sumMultiples(5, LIMIT);
@@ -11,11 +13,11 @@ public class Problem1 {
         System.out.println(answer);
     }
 
-    private static int sumMultiples(int base, int limit) {
-        int sum = 0;
-        for (int i = base; i < limit; i += base) {
-            sum += i;
-        }
+    // http://www.algebra.com/algebra/homework/Sequences-and-series.faq.question.427328.html
+    private static int sumMultiples(int multiple, int limit) {
+        int numTerms = limit / multiple;
+        int lastTerm = multiple * numTerms;
+        int sum = (int) ((numTerms / 2.0) * (multiple + lastTerm));
         return sum;
     }
 }
