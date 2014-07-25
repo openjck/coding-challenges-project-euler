@@ -15,9 +15,9 @@ func main() {
 }
 
 // http://www.algebra.com/algebra/homework/Sequences-and-series.faq.question.427328.html
-func sumMultiples(multiple int, limit int) (sum int) {
+func sumMultiples(multiple int, limit int) int {
     numTerms := limit / multiple
     lastTerm := multiple * numTerms
-    sum = int((float32(numTerms) / 2.0) * float32(multiple + lastTerm))
-    return
+    sum := int((float32(numTerms) / 2.0) * float32(multiple + lastTerm))
+    return sum
 }

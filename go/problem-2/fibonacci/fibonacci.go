@@ -22,12 +22,13 @@ func NewFibonacciSequence(limit int) *FibonacciSequence {
     return &FibonacciSequence{sequence}
 }
 
-func (f *FibonacciSequence) SumEven() (sum int) {
+func (f *FibonacciSequence) SumEven() int {
+    sum := 0
     sequence := f.sequence
     for _,fib := range sequence {
         if fib % 2 == 0 {
             sum += fib
         }
     }
-    return
+    return sum
 }
