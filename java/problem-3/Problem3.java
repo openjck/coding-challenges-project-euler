@@ -26,7 +26,7 @@ public class Problem3 {
     }
 
     private static ArrayList<Long> factors(long n) {
-        List<Long> factors = new ArrayList<Long>();
+        ArrayList<Long> factors = new ArrayList<Long>();
 
         for(long i = 1; i <= Math.sqrt(n); i++) {
             if(n % i == 0) {
@@ -40,7 +40,7 @@ public class Problem3 {
             }
         }
 
-        return (ArrayList<Long>)factors;
+        return factors;
     }
 
     private static boolean isPrime(long n) {
