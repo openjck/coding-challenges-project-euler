@@ -8,12 +8,12 @@ public class Problem3 {
     }
 
     private static long greatestPrimeFactor(long n) {
-        ArrayList<Long> primeFactors = primeFactors(n);
-        return primeFactors.get(primeFactors.size() - 1);
+        TreeSet<Long> primeFactors = primeFactors(n);
+        return primeFactors.last();
     }
 
-    private static ArrayList<Long> primeFactors(long n) {
-        ArrayList<Long> primeFactors = new ArrayList<Long>();
+    private static TreeSet<Long> primeFactors(long n) {
+        TreeSet<Long> primeFactors = new TreeSet<Long>();
         ArrayList<Long> factors = factors(n);
 
         for (Long factor : factors) {
@@ -40,7 +40,6 @@ public class Problem3 {
             }
         }
 
-        Collections.sort(factors);
         return (ArrayList<Long>)factors;
     }
 

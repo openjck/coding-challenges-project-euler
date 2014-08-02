@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Problem4 {
     public static void main(String[] args) {
         int answer = highestPalindromeProduct(100, 999);
@@ -5,19 +7,18 @@ public class Problem4 {
     }
 
     private static int highestPalindromeProduct(int lowestFactor, int highestFactor) {
-        int highestPalindromeProduct = 0;
+        TreeSet<Integer> palindromes = new TreeSet<Integer>();
 
         for (int i = highestFactor; i >= lowestFactor; i--) {
             for (int j = highestFactor; j >= lowestFactor; j--) {
                 int product = i * j;
-
-                if (isPalindrome(product) && (product > highestPalindromeProduct)) {
-                    highestPalindromeProduct = product;
+                if (isPalindrome(product)) {
+                    palindromes.add(product);
                 }
             }
         }
 
-        return highestPalindromeProduct;
+        return palindromes.last();
     }
 
     private static boolean isPalindrome(int n) {
