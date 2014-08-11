@@ -1,17 +1,12 @@
-# Compile all out-of-date source files
-# http://stackoverflow.com/a/2706067
+SRC = $(wildcard problem-*.hs)
+OUT = $(subst .hs,,$(SRC))
 
-SRC = $(wildcard *.hs)
-OUT = $(patsubst %.hs,%,$(SRC))
+.PHONY: main run clean nuke
 
-.PHONY: all run clean nuke
+main:
+	ghc -i../modules --make $(SRC)
 
-all: $(OUT)
-
-%: %.hs
-	ghc -i../modules $< -o $@
-
-run: $(OUT)
+run: main
 	./$(OUT)
 
 clean:
