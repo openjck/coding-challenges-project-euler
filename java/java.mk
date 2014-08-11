@@ -6,15 +6,15 @@ OUT = $(patsubst %.java,%.class,$(SRC))
 CLASS = $(patsubst %.java,%,$(SRC))
 CLASSPATH = .:../packages
 
-.PHONY: all run clean
+.PHONY: all run nuke
 
 all: $(OUT)
 
-run: $(OUT)
-	java -classpath $(CLASSPATH) $(CLASS)
-
 %.class: %.java
 	javac -classpath $(CLASSPATH) $<
+
+run: $(OUT)
+	java -classpath $(CLASSPATH) $(CLASS)
 
 nuke:
 	rm -f *.class
