@@ -1,6 +1,8 @@
 module Primes (primes, sieveOfEratosthenes)
 where
 
+import Utilities.Math
+
 type Sieve = [Integer] -> [Integer]
 
 primes :: Sieve -> [Integer]
@@ -9,4 +11,4 @@ primes sieve = sieve candidates
 
 sieveOfEratosthenes :: Sieve
 sieveOfEratosthenes (prime:otherCandidates) = prime : (sieveOfEratosthenes nonFactors)
-    where nonFactors = filter (\x -> x `mod` prime /= 0) otherCandidates
+    where nonFactors = filter (\x -> not (prime `isFactorOf` x)) otherCandidates
