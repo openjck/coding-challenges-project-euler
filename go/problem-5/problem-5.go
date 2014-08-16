@@ -2,6 +2,7 @@ package main
 
 import (
     "fmt"
+    "math"
     "../packages/utilities/mathutils"
 )
 
@@ -27,27 +28,23 @@ func lcmMultiple(nums []int) int {
 }
 
 func lcm(a int, b int) int {
-    var higher, lower int
-
-    /* Determine which argument is higher so that we don't waste time testing
-       multiples of the lower number. We could use math.Min and math.Max, but
-       that would require two tests. */
-    if (a >= b) {
-        higher = a
-        lower = b
-    } else {
-        higher = b
-        lower = a
-    }
-
-    var lcm, multiple int
-    for i := 1; i <= lower; i++ {
-        multiple = higher * i
-        if (multiple % lower == 0) {
-            lcm = multiple
-            break
-        }
-    }
-
+    gcd := gcd(a, b)
+    lcm := int(math.Abs(float64(a * b))) / gcd
     return lcm
+}
+
+func gcd(a int, b int) int {
+    // Unlike in Java, we can't call this variable gcd. The compiler would think
+    // we were referring to this variable when we call gcd() later.
+    gcdValue := 1
+
+    if (b == 0) {
+        gcdValue = a
+    } else if (a >= b && b > 0) {
+        gcdValue = gcd(b, a % b)
+    } else if (b >=a && a > 0) {
+        gcdValue = gcd(b, a % b)
+    }
+
+    return gcdValue
 }
