@@ -1,18 +1,10 @@
-# Compile all out-of-date source files
-# http://stackoverflow.com/a/2706067
+.PHONY: run nuke
 
-SRC = $(wildcard *.scm)
-OUT = $(patsubst %.scm,%,$(SRC))
+main: main.scm
+	csc -o main main.scm
 
-.PHONY: all run nuke
-
-all: $(OUT)
-
-run: $(OUT)
-	./$(OUT)
-
-%: %.scm
-	csc $< -o $@
+run: main
+	./main
 
 nuke:
-	rm -f $(OUT)
+	rm -f main
