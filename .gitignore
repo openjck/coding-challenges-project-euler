@@ -2,10 +2,7 @@
 **/main
 !**/main.*
 
-# Ignore notes-to-self
-notes/
-
-# Intermediate files
+# Generated files
 *.hi
 *.o
 *.class
