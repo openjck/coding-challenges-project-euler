@@ -1,18 +1,10 @@
-# Compile all out-of-date source files
-# http://stackoverflow.com/a/2706067
+.PHONY: run nuke
 
-SRC = $(wildcard *.go)
-OUT = $(patsubst %.go,%,$(SRC))
+main: main.go
+	go build -o main main.go
 
-.PHONY: all run nuke
-
-all: $(OUT)
-
-%: %.go
-	go build -o $@ $<
-
-run: $(OUT)
-	./$(OUT)
+run: main
+	./main
 
 nuke:
-	rm -f $(OUT)
+	rm -f main

@@ -3,7 +3,7 @@ package main
 import (
     "fmt"
     "math"
-    "../packages/utilities/mathutils"
+    "../../packages/utilities/mathutils"
 )
 
 func main() {

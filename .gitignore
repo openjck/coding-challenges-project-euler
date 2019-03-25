@@ -1,6 +1,6 @@
 # Ignore binaries, but not source files
-*/problem-*/problem-*
-!*/problem-*/problem-*.*
+**/main
+!**/main.*
 
 # Ignore notes-to-self
 notes/
