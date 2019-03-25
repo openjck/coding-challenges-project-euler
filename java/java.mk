@@ -1,20 +1,16 @@
-# Compile all out-of-date source files
-# http://stackoverflow.com/a/2706067
+SOURCES = $(shell find . -type f -name '*.java')
+CLASSES = $(patsubst %.java,%.class,$(SOURCES))
+CLASSPATH = .:../../packages
 
-SRC = $(wildcard *.java)
-OUT = $(patsubst %.java,%.class,$(SRC))
-CLASS = $(patsubst %.java,%,$(SRC))
-CLASSPATH = .:../packages
+.PHONY: default run clean
 
-.PHONY: all run nuke
-
-all: $(OUT)
+default: $(CLASSES)
 
 %.class: %.java
 	javac -classpath $(CLASSPATH) $<
 
-run: $(OUT)
-	java -classpath $(CLASSPATH) $(CLASS)
+run: $(CLASSES)
+	java -classpath $(CLASSPATH) Main
 
-nuke:
-	rm -f *.class
+clean:
+	find . -type f -name '*.class' -exec rm -rf '{}' \;

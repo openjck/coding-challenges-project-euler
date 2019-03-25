@@ -1,16 +1,16 @@
-SRC = $(wildcard problem-*.hs)
-OUT = $(subst .hs,,$(SRC))
+SOURCES = $(shell find . -type f -name '*.hs')
 
-.PHONY: main run clean nuke
+.PHONY: default run clean
 
-main:
-	ghc -i../modules --make $(SRC)
+default: main
+
+main: $(SOURCES)
+	ghc -i../../modules main.hs
 
 run: main
-	./$(OUT)
+	./main
 
 clean:
-	rm -f *.hi *.o
-
-nuke: clean
-	rm -f $(OUT)
+	find . -type f -name '*.hi' -exec rm -rf '{}' \;
+	find . -type f -name '*.o' -exec rm -rf '{}' \;
+	rm -f main

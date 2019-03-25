@@ -1,18 +1,14 @@
-# Compile all out-of-date source files
-# http://stackoverflow.com/a/2706067
+SOURCES = $(shell find . -type f -name '*.go')
 
-SRC = $(wildcard *.go)
-OUT = $(patsubst %.go,%,$(SRC))
+.PHONY: default run clean
 
-.PHONY: all run nuke
+default: main
 
-all: $(OUT)
+main: $(SOURCES)
+	go build -o main main.go
 
-%: %.go
-	go build -o $@ $<
+run: main
+	./main
 
-run: $(OUT)
-	./$(OUT)
-
-nuke:
-	rm -f $(OUT)
+clean:
+	rm -f main

@@ -1,18 +1,14 @@
-# Compile all out-of-date source files
-# http://stackoverflow.com/a/2706067
+SOURCES = $(shell find . -type f -name '*.scm')
 
-SRC = $(wildcard *.scm)
-OUT = $(patsubst %.scm,%,$(SRC))
+.PHONY: default run clean
 
-.PHONY: all run nuke
+default: main
 
-all: $(OUT)
+main: $(SOURCES)
+	csc -o main main.scm
 
-run: $(OUT)
-	./$(OUT)
+run: main
+	./main
 
-%: %.scm
-	csc $< -o $@
-
-nuke:
-	rm -f $(OUT)
+clean:
+	rm -f main
