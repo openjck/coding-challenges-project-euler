@@ -2,7 +2,7 @@ package main
 
 import (
     "fmt"
-    "../../packages/utilities/mathutils"
+    "../../packages/utilities/mathutils/original"
 )
 
 func main() {

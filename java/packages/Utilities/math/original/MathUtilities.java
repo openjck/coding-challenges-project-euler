@@ -1,4 +1,4 @@
-package Utilities.math;
+package Utilities.math.original;
 
 public class MathUtilities {
     public static int[] numbersBetween(int start, int end) {

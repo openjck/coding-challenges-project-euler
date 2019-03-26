@@ -1,4 +1,4 @@
-import Utilities.math.MathUtilities;
+import Utilities.math.original.MathUtilities;
 
 public class Main {
     public static void main(String[] args) {
