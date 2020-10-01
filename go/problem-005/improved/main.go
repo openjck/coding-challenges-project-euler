@@ -3,14 +3,23 @@ package main
 import (
     "fmt"
     "math"
-    "../../packages/utilities/mathutils"
 )
 
 func main() {
-    firstTwenty := mathutils.NumbersBetween(1, 20)
+    firstTwenty := numbersBetween(1, 20)
     answer := lcmMultiple(firstTwenty)
 
     fmt.Println(answer)
+}
+
+func numbersBetween(start int, end int) []int {
+    var nums []int
+
+    for i := 1; i <= end; i++ {
+        nums = append(nums, i)
+    }
+
+    return nums
 }
 
 func lcmMultiple(nums []int) int {

@@ -2,14 +2,24 @@ package main
 
 import (
     "fmt"
-    "../../packages/utilities/mathutils/original"
 )
 
 func main() {
-    firstHundred := mathutils.NumbersBetween(1, 100)
+    firstHundred := numbersBetween(1, 100)
     answer := squareOfSum(firstHundred) - sumOfSquares(firstHundred)
 
     fmt.Println(answer)
+}
+
+func numbersBetween(start int, end int) []int {
+    numNumbers := end - start + 1
+    numbers := make([]int, numNumbers, numNumbers)
+
+    for i, n := 0, start; n <= end; i, n = i+1, n+1 {
+        numbers[i] = n
+    }
+
+    return numbers
 }
 
 func squareOfSum(nums []int) int {

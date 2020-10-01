@@ -1,11 +1,20 @@
-import Utilities.math.original.MathUtilities;
-
 public class Main {
     public static void main(String[] args) {
-        int[] firstHundred = MathUtilities.numbersBetween(1, 100);
+        int[] firstHundred = numbersBetween(1, 100);
         int answer = squareOfSum(firstHundred) - sumOfSquares(firstHundred);
 
         System.out.println(answer);
+    }
+
+    public static int[] numbersBetween(int start, int end) {
+        int[] numbers = new int[end - start + 1];
+
+        for(int i = start; i <= end; i++) {
+            int index = i - start;
+            numbers[index] = i;
+        }
+
+        return numbers;
     }
 
     private static int squareOfSum(int[] nums) {

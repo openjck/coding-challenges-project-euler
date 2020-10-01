@@ -1,10 +1,8 @@
-SOURCES = $(shell find . -type f -name '*.scm')
-
 .PHONY: default run clean
 
 default: main
 
-main: $(SOURCES)
+main: main.scm
 	csc -o main main.scm
 
 run: main

@@ -1,1 +1,1 @@
-../../go.mk
+include ../../go.mk

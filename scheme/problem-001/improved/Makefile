@@ -1,1 +1,1 @@
-../../scheme.mk
+include ../../scheme.mk

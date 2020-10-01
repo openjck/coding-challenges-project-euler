@@ -1,1 +1,1 @@
-../../java.mk
+include ../../java.mk

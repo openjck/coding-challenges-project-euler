@@ -1,16 +1,15 @@
 SOURCES = $(shell find . -type f -name '*.java')
 CLASSES = $(patsubst %.java,%.class,$(SOURCES))
-CLASSPATH = .:../../packages
 
 .PHONY: default run clean
 
 default: $(CLASSES)
 
 %.class: %.java
-	javac -classpath $(CLASSPATH) $<
+	javac $<
 
 run: $(CLASSES)
-	java -classpath $(CLASSPATH) Main
+	java Main
 
 clean:
-	find . -type f -name '*.class' -exec rm -rf '{}' \;
+	find . -type f -name '*.class' -delete

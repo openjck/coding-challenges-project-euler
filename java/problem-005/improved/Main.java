@@ -1,10 +1,19 @@
-import Utilities.math.MathUtilities;
-
 public class Main {
     public static void main(String[] args) {
-        int[] firstTwenty = MathUtilities.numbersBetween(1,20);
+        int[] firstTwenty = numbersBetween(1,20);
         long answer = lcmMultiple(firstTwenty);
         System.out.println(answer);
+    }
+
+    private static int[] numbersBetween(int start, int end) {
+        int[] numbers = new int[end - start + 1];
+
+        for(int i = start; i <= end; i++) {
+            int index = i - start;
+            numbers[index] = i;
+        }
+
+        return numbers;
     }
 
     private static long lcmMultiple(int[] nums) {
