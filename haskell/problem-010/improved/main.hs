@@ -19,16 +19,16 @@ sumOfPrimesBelow n = sum naturals - sum composites - sum neitherPrimeNorComposit
 --
 -- Some optimizations are used here:
 --
--- * When generating relevant multiples, we only need to consider multiples
---   starting from the square of the factor. Any others will have already been
---   generated as a multiple of an earlier factor. This is a common optimization
---   of the Sieve of Eratosthenes.
--- * The set of factors which are used to find relevant multiples does not need
---   to include even numbers other than 2, since all multiples of all even
---   numbers are also multiples of 2.
--- * The set of factors which are used to find relevant multiples can end at the
---   square root of "until", since the lowest relevant multiple is the square of
---   the factor and we ignore all multiples greater than "until".
+--   * When generating relevant multiples, we only need to consider multiples
+--     starting from the square of the factor. Any others will have already been
+--     generated as a multiple of an earlier factor. This is a common optimization
+--     of the Sieve of Eratosthenes.
+--   * The set of factors which are used to find relevant multiples does not need
+--     to include even numbers other than 2, since all multiples of all even
+--     numbers are also multiples of 2.
+--   * The set of factors which are used to find relevant multiples can end at the
+--     square root of "until", since the lowest relevant multiple is the square of
+--     the factor and we ignore all multiples greater than "until".
 compositesUntil :: Int -> Set Int
 compositesUntil until = Set.foldl unionMultiples Set.empty factors
   where
